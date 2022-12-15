@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
+import { Link } from "react-scroll";
+import "../index.css";
 
 const NavBar = () => {
   const [isSpreaded, setIsSpreaded] = useState(false);
@@ -19,6 +21,10 @@ const NavBar = () => {
     },
     {
       id: 4,
+      linkName: "experience",
+    },
+    {
+      id: 5,
       linkName: "contact",
     },
   ];
@@ -36,7 +42,9 @@ const NavBar = () => {
             className="px-4 cursor-pointer font-medium capitalize text-white hover:scale-110 duration-150"
             key={id}
           >
-            {linkName}
+            <Link to={linkName} smooth duration={500} activeClass="active" spy>
+              {linkName}
+            </Link>
           </li>
         ))}
       </ul>
@@ -53,7 +61,16 @@ const NavBar = () => {
               className="px-4 cursor-pointer text-4xl py-4 capitalize text-white hover:scale-110 duration-150"
               key={id}
             >
-              {linkName}
+              <Link
+                to={linkName}
+                smooth
+                duration={500}
+                activeClass="active"
+                spy
+                onClick={() => setIsSpreaded(!isSpreaded)}
+              >
+                {linkName}
+              </Link>
             </li>
           ))}
         </ul>

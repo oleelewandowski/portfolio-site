@@ -11,3 +11,8 @@
     font-family: "Raleway", sans-serif;
   }
 }
+
+.active {
+  color: orange;
+  text-decoration: underline;
+}
