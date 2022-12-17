@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { AiOutlineStar } from "react-icons/ai";
+import oleeLogo from "../assets/oleeLogo.svg";
 import { Link } from "react-scroll";
 import "../index.css";
 
@@ -17,11 +17,11 @@ const NavBar = () => {
     },
     {
       id: 3,
-      linkName: "portfolio",
+      linkName: "experience",
     },
     {
       id: 4,
-      linkName: "experience",
+      linkName: "portfolio",
     },
     {
       id: 5,
@@ -29,17 +29,15 @@ const NavBar = () => {
     },
   ];
   return (
-    <div className="flex justify-between items-center w-full h-20 fixed px-4 text-white  bg-black">
+    <div className="flex justify-between items-center w-full h-20 fixed px-4 text-white bg-black animate-fade-in">
       <div className="flex flex-row gap-2 flex-grow">
-        <h1 className="text-5xl font-logo ml-2">oLee </h1>
-        <span>
-          <AiOutlineStar color="rgb(249 115 22)" />
-        </span>
+        <img className="w-max h-max" src={oleeLogo} alt="olee logo"></img>
+        <button></button>
       </div>
       <ul className="hidden md:flex">
         {links.map(({ id, linkName }) => (
           <li
-            className="px-4 cursor-pointer font-medium capitalize text-white hover:scale-110 duration-150"
+            className="px-4 cursor-pointer font-medium uppercase text-white hover:scale-110 duration-150"
             key={id}
           >
             <Link to={linkName} smooth duration={500} activeClass="active" spy>
@@ -55,25 +53,27 @@ const NavBar = () => {
         {isSpreaded ? <FaTimes size={25} /> : <FaBars size={25} />}
       </div>
       {isSpreaded && (
-        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black via-black to-gray-900">
-          {links.map(({ id, linkName }) => (
-            <li
-              className="px-4 cursor-pointer text-4xl py-4 capitalize text-white hover:scale-110 duration-150"
-              key={id}
-            >
-              <Link
-                to={linkName}
-                smooth
-                duration={500}
-                activeClass="active"
-                spy
-                onClick={() => setIsSpreaded(!isSpreaded)}
+        <>
+          <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black via-black to-gray-900">
+            {links.map(({ id, linkName }) => (
+              <li
+                className="px-4 cursor-pointer text-4xl py-4 text-white hover:scale-110 duration-150 uppercase"
+                key={id}
               >
-                {linkName}
-              </Link>
-            </li>
-          ))}
-        </ul>
+                <Link
+                  to={linkName}
+                  smooth
+                  duration={500}
+                  activeClass="active"
+                  spy
+                  onClick={() => setIsSpreaded(!isSpreaded)}
+                >
+                  {linkName}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </>
       )}
     </div>
   );

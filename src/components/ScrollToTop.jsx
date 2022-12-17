@@ -27,7 +27,7 @@ const ScrollToTop = () => {
         <Link to={"home"} smooth duration={500}>
           <button
             type="button"
-            className={`bg-orange-500 hover:bg-orange-600 focus:ring-orange-500 inline-flex items-center rounded-xl p-4 text-white shadow-sm transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2`}
+            className="bg-orange-500 hover:bg-orange-600 focus:ring-orange-500 inline-flex items-center rounded-xl p-4 text-white shadow-sm transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 hover:ring-2 ring-offset-2"
           >
             <BiArrowFromBottom className="h-6 w-6" aria-hidden="true" />
           </button>

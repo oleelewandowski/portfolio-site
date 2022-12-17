@@ -41,7 +41,7 @@ const ContactForm = () => {
               <textarea
                 name="message"
                 rows="10"
-                className="p-3 w-full bg-transparent border-2 rounded-md text-white focus:outline-none mt-3 mb-6"
+                className="p-3 w-full bg-transparent border-2 rounded-md text-white focus:outline-none mt-3 mb-6 resize-none"
                 placeholder="Enter your message here..."
               ></textarea>
             </label>
